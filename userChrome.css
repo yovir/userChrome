@@ -6,24 +6,109 @@
     font-family: "Helvetica Lt Std";
 }
 
-/* Floating Scrollbar */
+/* Tabs on bottom */
+#TabsToolbar {
+  -moz-box-ordinal-group: 3;
+}
+#nav-bar{
+  border-top-width: 0px !important;
+}
+#TabsToolbar .tabbrowser-tabs {
+  height: 18px !important;
+  border-bottom: 1px solid #B1B1B1 !important;
+}
 
+/* Remove extra tab bar space */
+#TabsToolbar {
+  padding-inline-start: 0px !important;
+  margin-bottom: none !important;
+}
+
+.titlebar-placeholder {
+  display: none;
+}
+
+/* Full-width tabs */
+#TabsToolbar .tabbrowser-tab[fadein]:not([pinned]) {
+  flex-grow: 1 !important;
+  min-width: 11em !important;
+  max-width: 100% !important;
+}
+
+/* Hide Favicons, center text */
+.tabbrowser-tabs .tab-icon-image {
+  display: none !important;
+}
+.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
+  display: block !important;
+}
+.tab-label {
+  -moz-box-flex: 1 !important;
+  text-align: center !important;
+}
+
+/* Hide and show close tab button */
+#TabsToolbar .tab-close-button {
+  -moz-box-ordinal-group: 1 !important;
+  margin-left: -5.5px !important;
+  border-radius: 2px !important;
+  transition: opacity 200ms !important;
+    /* small x */
+  list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1"/>\</svg>') !important;
+}
+
+@media (max-resolution: 1.9dppx) {
+  #TabsToolbar .tab-close-button {
+    list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\</svg>') !important;
+  }
+}
+
+#TabsToolbar tab:not(:hover) .tab-close-button {
+  opacity: 0 !important;
+}
+
+#TabsToolbar tab:hover .tab-close-button {
+  opacity: 1 !important;
+}
+
+#TabsToolbar tab .close-icon {
+  -moz-image-region: unset !important;
+}
+
+#TabsToolbar tab .close-icon:hover {
+  -moz-image-region: unset !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  background-clip: padding-box !important;
+}
+
+#TabsToolbar tab .close-icon:hover:active {
+  background-color: rgba(0,0,0,0.15) !important;
+}
+
+/* Floating Scrollbar */
 toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
 
+/* Disable tab overflow */
+.tabbrowser-tab {
+  min-width: initial !important;
+}
+
+.tab-content {
+  overflow: hidden !important;
+}
 
 /* Remove Left and Right Padding From Tab Bar */
-
 .titlebar-placeholder[type="pre-tabs"], .titlebar-placeholder[type="post-tabs"] { display:none !important; }
 
+/* Tab line hidden*/
 .tab-line { display: none !important; }
 
 /*
  * Originally from:
  * http://forums.mozillazine.org/viewtopic.php?p=14404121#p14404121
  */
-
 #urlbar {
   position: relative;
   z-index: 1;
