@@ -1,6 +1,6 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Firefox UI Font */
+/* Firefox UI font */
 * {
     font-family: "Helvetica Lt Std";
 }
@@ -34,7 +34,15 @@
   max-width: 100% !important;
 }
 
-/* Hide Favicons, center text */
+#TabsToolbar {
+  box-shadow: inset 0px 1px 0px 0px rgb(162,160,162), inset 0px -1px 0px 0px rgb(162,160,162) !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  margin-right: -1px !important;
+  
+}
+
+/* Hide favicons, center text */
 .tabbrowser-tabs .tab-icon-image {
   display: none !important;
 }
@@ -84,7 +92,7 @@
   background-color: rgba(0,0,0,0.15) !important;
 }
 
-/* Floating Scrollbar */
+/* Floating scrollbar */
 toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
@@ -101,7 +109,7 @@ toolbarbutton#alltabs-button {
 /* Remove Left and Right Padding From Tab Bar */
 .titlebar-placeholder[type="pre-tabs"], .titlebar-placeholder[type="post-tabs"] { display:none !important; }
 
-/* Tab line hidden*/
+/* Tab line hidden */
 .tab-line { display: none !important; }
 
 
@@ -230,15 +238,7 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
   color: var(--lwt-text-color) !important;
 }
 
-/* Change tab color based on windows scheme */
-.tab-line[selected="true"] {
-     background: -moz-win-accentcolor !important;
- }
- :root {
-     --tab-loading-fill: -moz-win-accentcolor !important;
- }
-
- /* Center url */
+/* Center url */
  #urlbar .urlbar-input-box {
     text-align: center;
 }
@@ -250,4 +250,9 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 }
 #identity-icon-labels {
     transform: translateY(-1px);
+}
+
+/* Remove this weird extra separator Mozilla tacks on before the page content */
+#navigator-toolbox::after {
+  display: none !important;
 }
