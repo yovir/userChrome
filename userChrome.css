@@ -237,3 +237,17 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
  :root {
      --tab-loading-fill: -moz-win-accentcolor !important;
  }
+
+ /* Center url */
+ #urlbar .urlbar-input-box {
+    text-align: center;
+}
+
+/* Make url safari-like */
+#urlbar {
+    /* Place bindings.xml in the same folder as userChrome.css */
+    -moz-binding: url("bindings.xml#urlbar") !important;
+}
+#identity-icon-labels {
+    transform: translateY(-1px);
+}
