@@ -104,87 +104,136 @@ toolbarbutton#alltabs-button {
 /* Tab line hidden*/
 .tab-line { display: none !important; }
 
-/*
- * Originally from:
- * http://forums.mozillazine.org/viewtopic.php?p=14404121#p14404121
- */
-#urlbar {
+
+/* Move findbar to top */
+@keyframes scale-in {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+.browserContainer {
+  position: relative;
+}
+
+findbar {
+  animation: 0.2s scale-in;
+  transform-origin: top center;
+  background: var(--toolbar-bgcolor) !important;
+  padding: 4px 6px 6px 6px;
+  border: 1px solid var(--toolbox-border-bottom-color);
+  border-top-width: 0;
+  border-radius: 0 0 var(--toolbarbutton-border-radius) var(--toolbarbutton-border-radius);
+  position: absolute;
+  top: -20px;
+  right: 38px;
+}
+
+findbar[hidden="true"] {
+  animation: 0.2s scale-out;
+}
+
+findbar .findbar-container {
+  padding: 0 !important;
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
+}
+
+findbar .findbar-container .findbar-textbox {
+  padding: 6px 8px !important;
+  background-color: var(--url-and-searchbar-background-color) !important;
+  border-color: var(--backbutton-border-color) !important;
+}
+
+findbar .findbar-container .findbar-textbox[status="notfound"] {
+  background-color: #E74C3C !important;
+  color: white !important;
+}
+
+findbar .findbar-container .findbar-find-previous,
+findbar .findbar-container .findbar-find-next {
+  background: transparent !important;
+  border-color: var(--backbutton-border-color) !important;
+}
+
+findbar .findbar-container .findbar-find-previous:hover, findbar .findbar-container .findbar-find-previous:focus,
+findbar .findbar-container .findbar-find-next:hover,
+findbar .findbar-container .findbar-find-next:focus {
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+findbar .findbar-button {
+  border: 1px solid var(--backbutton-border-color);
+  border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+findbar .findbar-closebutton {
+  margin-right: 4px !important;
+  padding-inline-end: 0 !important;
+  position: relative;
+  top: 6px;
+}
+
+window[lwtheme="true"] findbar {
+  background: var(--lwt-header-image) !important;
+  background-attachment: fixed !important;
+  background-position: top right !important;
+  top: -1px;
+}
+
+window[lwtheme="true"] findbar:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--toolbar-bgcolor);
+}
+
+window[lwtheme="true"] findbar .findbar-container,
+window[lwtheme="true"] findbar .findbar-closebutton {
   position: relative;
   z-index: 1;
 }
 
-#identity-box:after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: -1;
-  background: white;
-  opacity: 0.2;
+window[lwtheme="true"] findbar .findbar-textbox {
+  color: var(--lwt-text-color) !important;
+  background-color: var(--toolbar-bgcolor) !important;
 }
 
-
-/* There is also grantedPermissions, but irrelevant. */
-
-/* about:about */
-#urlbar[pageproxystate='valid'] #identity-box.unknownIdentity:after {
-  background: #ff0039; /* Firefox Red 50 */
+window[lwtheme="true"] findbar .findbar-textbox[status="notfound"] {
+  background-color: #E74C3C !important;
+  color: white !important;
 }
 
-/* about:config */
-#urlbar[pageproxystate='valid'] #identity-box.chromeUI:after {
-  background: #0a84ff; /* Firefox Blue 50 */
+window[lwtheme="true"] findbar .findbar-button[checked="true"] {
+  font-weight: bold;
+  background-color: var(--toolbar-bgcolor) !important;
 }
 
-/* uBlock Origin Dashboard */
-#urlbar[pageproxystate='valid'] #identity-box.extensionPage:after {
-  background: #45a1ff; /* Firefox Blue 40 */
+window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] findbar .found-matches {
+  color: var(--lwt-text-color) !important;
 }
 
-/* https://www.github.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.verifiedIdentity:after{
-  background: #058b00; /* Firefox Green 70 */
-}
-
-/* https://www.google.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.verifiedDomain:after{
-  background: #12bc00; /* Firefox Green 60 */
-}
-
-/* https://mixed-script.badssl.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.mixedActiveBlocked:after {
-  background: #30e60b; /* Firefox Green 50 */
-}
-
-/* https://mixed.badssl.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContent:after {
-  background: #d7b600; /* Firefox Yellow 60 */
-}
-
-/* https://very.badssl.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContentLoadedActiveBlocked:after {
-  background: #d7b600; /* Firefox Yellow 60 */
-}
-
-/* https://self-signed.badssl.com/ but add certificate exception */
-#urlbar[pageproxystate='valid'] #identity-box.certUserOverridden:after {
-  background: #ffe900; /* Firefox Yellow 50 */
-}
-
-/* Don't know an example for this */
-#urlbar[pageproxystate='valid'] #identity-box.weakCipher:after {
-  background: #a47f00; /* Firefox Yellow 70 */
-}
-
-/* https://mixed-script.badssl.com/ but disable protection */
-#urlbar[pageproxystate='valid'] #identity-box.mixedActiveContent:after {
-  background: #d70022;  /* Firefox Red 60 */
-}
-
-/* http://http-login.badssl.com/ */
-#urlbar[pageproxystate='valid'] #identity-box.insecureLoginForms:after {
-  background: #a4000f;  /* Firefox Red 70 */
-}
+/* Change tab color based on windows scheme */
+.tab-line[selected="true"] {
+     background: -moz-win-accentcolor !important;
+ }
+ :root {
+     --tab-loading-fill: -moz-win-accentcolor !important;
+ }
