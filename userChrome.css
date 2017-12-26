@@ -256,3 +256,6 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 #navigator-toolbox::after {
   display: none !important;
 }
+
+/* Remove identity icon */
+#identity-icon {display: none !important;}
