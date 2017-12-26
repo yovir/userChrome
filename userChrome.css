@@ -258,4 +258,11 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 }
 
 /* Remove identity icon */
-#identity-icon {display: none !important;}
+#identity-icon {
+  display: none !important;
+}
+
+/* Remove tab loading burst */
+.tab-loading-burst {
+  display: none !important;
+}
