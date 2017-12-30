@@ -266,3 +266,8 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 .tab-loading-burst {
   display: none !important;
 }
+
+/* Remove tab loading animation */
+.tab-throbber {
+  display:none !important;
+}
