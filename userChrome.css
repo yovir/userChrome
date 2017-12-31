@@ -97,21 +97,11 @@ toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
 
-/* Disable tab overflow */
-.tabbrowser-tab {
-  min-width: initial !important;
-}
-
-.tab-content {
-  overflow: hidden !important;
-}
-
 /* Remove Left and Right Padding From Tab Bar */
 .titlebar-placeholder[type="pre-tabs"], .titlebar-placeholder[type="post-tabs"] { display:none !important; }
 
 /* Tab line hidden */
 .tab-line { display: none !important; }
-
 
 /* Move findbar to top */
 @keyframes scale-in {
