@@ -271,3 +271,9 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 .tab-throbber {
   display:none !important;
 }
+
+/* Make tab animations smooth */
+.tabbrowser-tab { 
+  min-width: 1em !important; 
+  clip-width: 1em !important; 
+}
