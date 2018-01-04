@@ -267,3 +267,19 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
   min-width: 1em !important; 
   clip-width: 1em !important; 
 }
+
+/* Change secure connection color */
+#identity-box.verifiedIdentity { 
+  --urlbar-separator-color: #737373 !important;
+}
+
+.identity-popup-connection-secure,
+#identity-box.verifiedIdentity #identity-icon-labels {
+  color: #45a1ff !important;
+}
+
+#identity-popup[connection^=secure] #identity-popup-securityView, 
+#identity-popup[connection^=secure] #identity-popup-security-content,
+#connection-icon {
+  fill: #45a1ff !important;
+}
