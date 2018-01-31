@@ -5,103 +5,11 @@
     font-family: "Helvetica Lt Std";
 }
 
-/* Tabs on bottom */
-#TabsToolbar {
-  -moz-box-ordinal-group: 3;
-}
-#nav-bar{
-  border-top-width: 0px !important;
-}
-#TabsToolbar .tabbrowser-tabs {
-  height: 18px !important;
-  border-bottom: 1px solid #B1B1B1 !important;
-}
-
-/* Remove extra tab bar space */
-#TabsToolbar {
-  padding-inline-start: 0px !important;
-  margin-bottom: none !important;
-}
-
-.titlebar-placeholder {
-  display: none;
-}
-
-/* Full-width tabs */
-#TabsToolbar .tabbrowser-tab[fadein]:not([pinned]) {
-  flex-grow: 1 !important;
-  min-width: 11em !important;
-  max-width: 100% !important;
-}
-
-#TabsToolbar {
-  box-shadow: inset 0px 1px 0px 0px rgb(162,160,162), inset 0px -1px 0px 0px rgb(162,160,162) !important;
-  margin-bottom: 0px !important;
-  margin-left: 0px !important;
-  margin-right: -1px !important;
-  
-}
-
-/* Hide favicons, center text */
-.tabbrowser-tabs .tab-icon-image {
-  display: none !important;
-}
-.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
-  display: block !important;
-}
-.tab-label {
-  -moz-box-flex: 1 !important;
-  text-align: center !important;
-}
-
-/* Hide and show close tab button */
-#TabsToolbar .tab-close-button {
-  -moz-box-ordinal-group: 1 !important;
-  margin-left: -5.5px !important;
-  border-radius: 2px !important;
-  transition: opacity 200ms !important;
-    /* small x */
-  list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1"/>\</svg>') !important;
-}
-
-@media (max-resolution: 1.9dppx) {
-  #TabsToolbar .tab-close-button {
-    list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\</svg>') !important;
-  }
-}
-
-#TabsToolbar tab:not(:hover) .tab-close-button {
-  opacity: 0 !important;
-}
-
-#TabsToolbar tab:hover .tab-close-button {
-  opacity: 1 !important;
-}
-
-#TabsToolbar tab .close-icon {
-  -moz-image-region: unset !important;
-}
-
-#TabsToolbar tab .close-icon:hover {
-  -moz-image-region: unset !important;
-  background-color: rgba(0,0,0,0.1) !important;
-  background-clip: padding-box !important;
-}
-
-#TabsToolbar tab .close-icon:hover:active {
-  background-color: rgba(0,0,0,0.15) !important;
-}
-
 /* Floating scrollbar */
 toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
 
-/* Remove Left and Right Padding From Tab Bar */
-.titlebar-placeholder[type="pre-tabs"], .titlebar-placeholder[type="post-tabs"] { display:none !important; }
-
-/* Tab line hidden */
-.tab-line { display: none !important; }
 
 /* Move findbar to top */
 @keyframes scale-in {
@@ -228,28 +136,166 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
   color: var(--lwt-text-color) !important;
 }
 
-/* Center url */
- #urlbar .urlbar-input-box {
-    text-align: center;
+/* 
+Original layout by /u/Herkt https://www.reddit.com/r/FirefoxCSS/comments/7eazix/my_attempt_at_a_oneline_interface/ 
+Use with compact density
+*/
+
+:root:-moz-lwtheme-brighttext {                                      /* minor color changes to the default dark theme */
+  --color-overflow: #222;                                            /* >> button color */
+  --chrome-background-color: #222 !important;                        /* tab strip background & inactive tabs */
+  --chrome-secondary-background-color: #333 !important;              /* nav bar & active tab */
+  --chrome-color: #ccc !important;                                   /* url & tab text, close tab & new tab buttons */
+  background-color: #444 !important;                                 /* top border of out of focus window */
 }
 
-/* Make url safari-like */
-#urlbar {
-    /* Place bindings.xml in the same folder as userChrome.css */
-    -moz-binding: url("bindings.xml#urlbar") !important;
-}
-#identity-icon-labels {
-    transform: translateY(-1px);
+:root:-moz-lwtheme-darktext {                                        /* minor changes to the default light theme */
+  --color-overflow: #ddd;                                            /* >> button color */
+  --chrome-background-color: #ccc !important;                        /* tab strip background & inactive tabs */
 }
 
-/* Remove this weird extra separator Mozilla tacks on before the page content */
-#navigator-toolbox::after {
+:root {
+  --tabs-border: transparent !important;                             /* active tab left & right borders - not working in 58?*/
+  --toolbox-border-bottom-color: transparent !important;             /* 1px line under background tabs */
+  --chrome-nav-bar-controls-border-color: transparent !important;    /* border around url bar */
+}
+
+/* Move Tab-bar beside Nav-bar */
+#TabsToolbar {      
+  margin-bottom: 0px !important;                /* not needed anymore? */
+  margin-top: 0px !important;                   /*  */
+  margin-left: 35vw !important;
+  margin-right: -34px !important;
+}
+
+#nav-bar {      
+  margin-bottom: -1px !important;               /* remove navbar bottom 1px border */
+  margin-top: -32px !important;
+  margin-right: 65vw !important; 
+  border-top: none !important;
+}   
+
+/* Remove padding above tabbar in compact mode */
+#main-window[sizemode="normal"] > #titlebar {
+  -moz-appearance: initial !important;
+}
+
+
+/* Back & Forward buttons */  
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon {
+  transform: scale(0.9, 0.9) !important;
+  margin-left: -2px !important;
+  margin-right: -2px !important; 
+}
+
+/* Move hamburger menu to the left */
+#PanelUI-button,
+#customization-panel-container,
+#customization-panelWrapper .panel-arrow { 
+  -moz-box-ordinal-group: 0 !important;
+  margin-right: -6px !important;
+}
+
+#appMenu-popup {
+  margin-right: -258px !important;
+}
+
+#appMenu-popup .panel-arrow {
+  margin-right: 248px !important;
+}
+
+  
+
+
+/* Tabs */
+.tabbrowser-tab {
+  height: 32px !important; 
+}
+
+
+
+/* Remove border between tabs
+Delete this rule if you want separators between background tabs */
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+  border-left: none !important;
+} 
+
+/* Border between background tabs */
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+  color: grey !important; 
+  opacity: .2 !important; 
+ }
+
+/* New tab button color */
+#new-tab-button, .tabs-newtab-button {
+  fill: var(--chrome-color) !important;
+  } 
+
+/* tab line - adjust color & size, default #0a84ff 2px */
+.tab-line {
+  background-color: #0a84ff !important;
+  height: 1 px !important;
+  }
+
+
+/*URL Bar*/
+    #pageActionButton,
+    #pocket-button-box,
+    .autocomplete-history-dropmarker,
+    #identity-icon-labels
+    {
+        display: none !important;
+    }  
+
+/* Hide favicons, center text */
+#tabbrowser-tabs .tab-icon-image {
   display: none !important;
 }
+.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
+  display: block !important;
+}
+.tab-label {
+  -moz-box-flex: 1 !important;
+  
+}
 
-/* Remove identity icon */
-#identity-icon {
-  display: none !important;
+/* Hide and show close tab button */
+#TabsToolbar .tab-close-button {
+  -moz-box-ordinal-group: 1 !important;
+  margin-left: -5.5px !important;
+  border-radius: 2px !important;
+  transition: opacity 200ms !important;
+    /* small x */
+  list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1"/>\</svg>') !important;
+}
+
+@media (max-resolution: 1.9dppx) {
+  #TabsToolbar .tab-close-button {
+    list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\</svg>') !important;
+  }
+}
+
+#TabsToolbar tab:not(:hover) .tab-close-button {
+  opacity: 0 !important;
+}
+
+#TabsToolbar tab:hover .tab-close-button {
+  opacity: 1 !important;
+}
+
+#TabsToolbar tab .close-icon {
+  -moz-image-region: unset !important;
+}
+
+#TabsToolbar tab .close-icon:hover {
+  -moz-image-region: unset !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  background-clip: padding-box !important;
+}
+
+#TabsToolbar tab .close-icon:hover:active {
+  background-color: rgba(0,0,0,0.15) !important;
 }
 
 /* Remove tab loading burst */
@@ -257,9 +303,15 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
   display: none !important;
 }
 
-/* Remove tab loading animation */
-.tab-throbber {
-  display:none !important;
+
+/* Remove New Tab Flash */
+
+@-moz-document url(chrome://browser/content/browser.xul)
+{
+  browser[type="content-primary"], tabbrowser tabpanels, #appcontent > #content
+  {
+    background: #323234 !important;
+  }
 }
 
 /* Make tab animations smooth */
@@ -282,4 +334,21 @@ window[lwtheme="true"] findbar .findbar-find-status, window[lwtheme="true"] find
 #identity-popup[connection^=secure] #identity-popup-security-content,
 #connection-icon {
   fill: #45a1ff !important;
+}
+
+/* Make url safari-like */
+#urlbar {
+    /* Place bindings.xml in the same folder as userChrome.css */
+    -moz-binding: url("bindings.xml#urlbar") !important;
+}
+#identity-icon-labels {
+    transform: translateY(-1px);
+}
+
+#PanelUI-menu-button {
+list-style-image: url("file:///C:/Users/Yovi%20Roinaldo/AppData/Roaming/Mozilla/Firefox/Profiles/xbh4gvct.default-1510849070419/chrome/firefox.png") !important;
+}
+
+#pageAction-urlbar-_e1ed7a80-7c11-4f7e-968b-79b551a0067f_{
+   -moz-box-ordinal-group: 2 !important;
 }
