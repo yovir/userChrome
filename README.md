@@ -8,7 +8,7 @@ My personal configuration for Firefox, taken from reddit and ShadowFox.
 
 * Look for a **Profile Folder** and open it.
 
-* Look for a folder titled **chrome**.
+* Look for a folder named **chrome**.
 
      *  If it exists, open it up and move every files from this repo into it.
      *  If it doesn't, create one with the name **chrome** (case sensitive), and do the same as above.
