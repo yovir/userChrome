@@ -248,7 +248,7 @@ Delete this rule if you want separators between background tabs */
         display: none !important;
     }  
 
-/* Hide favicons, center text */
+/* Hide favicons, center text 
 #tabbrowser-tabs .tab-icon-image {
   display: none !important;
 }
@@ -258,7 +258,7 @@ Delete this rule if you want separators between background tabs */
 .tab-label {
   -moz-box-flex: 1 !important;
   
-}
+} */
 
 /* Hide and show close tab button */
 #TabsToolbar .tab-close-button {
@@ -314,11 +314,6 @@ Delete this rule if you want separators between background tabs */
   }
 }
 
-/* Make tab animations smooth */
-.tabbrowser-tab { 
-  min-width: 1em !important; 
-  clip-width: 1em !important; 
-}
 
 /* Change secure connection color */
 #identity-box.verifiedIdentity { 
@@ -351,4 +346,114 @@ list-style-image: url("file:///C:/Users/Yovi%20Roinaldo/AppData/Roaming/Mozilla/
 
 #pageAction-urlbar-_e1ed7a80-7c11-4f7e-968b-79b551a0067f_{
    -moz-box-ordinal-group: 2 !important;
+}
+
+menupopup {
+  -moz-appearance: none !important;
+  padding: 8px 2px 8px 2px !important;
+  background-color: #2B2B2B !important;
+  border: 1px #A0A0A0 solid !important;
+  width: 280px !important;
+}
+
+menuseparator {
+  -moz-appearance: none !important;
+  border: none !important;
+  padding: .5px 0px .5px 0px !important;
+  margin: 4px 8px 4px 8px !important;
+  background-color: #808080 !important;
+}
+
+menuitem, menu {
+  -moz-appearance: none !important;
+  color: white !important;
+  padding: 7.5px 0px 7.5px 0px !important;
+}
+
+menuitem[disabled="true"], menuitem[disabled="true"] > .menu-text {
+  color: gray !important;
+}
+
+menuitem:hover, menu:hover, menu[open="true"], menuitem[_moz-menuactive="true"]  {
+  -moz-appearance: none !important;
+  padding: 7.5px 0px 7.5px 0px !important;
+  background-color: #414141 !important;
+}
+
+menugroup {
+  padding: 0px !important;
+  background-color: transparent !important;
+}
+
+menuitem > .menu-text, menuitem > .menu-iconic-text {
+  color: white !important;
+}
+
+menuitem[type="checkbox"] {
+  padding-left: 8px !important;
+  padding-top: 6.5px !important;
+  padding-bottom: 6.5px !important;
+}
+
+menuitem[type="radio"] {
+  padding-left: 8px !important;
+  padding-top: 6.5px !important;
+  padding-bottom: 6.5px !important;
+}
+
+menuitem[type="checkbox"] > .menu-iconic-text, menuitem[type="radio"] > .menu-iconic-text {
+  padding-left: 5px !important;
+}
+
+menuitem[checked="true"][type="checkbox"] > .menu-iconic-left {
+  padding: 7px 0px 0px 0px !important;
+  border: solid white;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg) scale(.75);
+  margin-bottom: 4px !important;
+}
+
+menuitem[checked="true"][type="radio"] > .menu-iconic-left {
+  padding: 1px !important;
+  border: solid white;
+  height: 17px !important;
+  border-radius: 100%;
+  background: white;
+  transform: scale(.5); 
+}
+
+#context-back > .menu-iconic-left, #context-forward > .menu-iconic-left, #context-reload > .menu-iconic-left, #context-stop > .menu-iconic-left, #context-bookmarkpage > .menu-iconic-left {
+  padding: 0px !important;
+}
+
+.menu-iconic-left {
+  -moz-appearance: none !important;
+  padding: 0px 5px 0px 9px !important;
+}
+
+.menu-right {
+  -moz-appearance: none !important;
+  padding: 7.5px !important;
+  margin-right: 6px !important;
+  color: white !important;
+  border: solid white;
+  border-width: 0 2px 2px 0px;
+  transform: rotate(-45deg) scale(.55);
+}
+
+/* Compress tabs to show dozens of them. */
+
+.tabbrowser-tab {
+  --tab-min-width: 45px;
+  -moz-box-flex: 0 !important;
+  transition: all 0.2s;
+  width: -10px !important;
+}
+
+.tabbrowser-tab[visuallyselected="true"] {
+  -moz-box-flex: 1 !important;
+}
+
+.tabbrowser-tabs > arrowscrollbox {
+  height: 45px !important;
 }
