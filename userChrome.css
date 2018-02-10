@@ -10,7 +10,6 @@ toolbarbutton#alltabs-button {
     -moz-binding: url("userChrome.xml#js");
 }
 
-
 /* Move findbar to top */
 @keyframes scale-in {
   0% {
@@ -219,27 +218,26 @@ Delete this rule if you want separators between background tabs */
 .tabbrowser-tab::after, .tabbrowser-tab::before {
   color: grey !important; 
   opacity: .2 !important; 
- }
+}
 
 /* New tab button color */
 #new-tab-button, .tabs-newtab-button {
   fill: var(--chrome-color) !important;
-  } 
+} 
 
 /* tab line - adjust color & size, default #0a84ff 2px */
 .tab-line {
   background-color: #0a84ff !important;
   height: 1 px !important;
-  }
+}
 
 /*URL Bar*/
-    #pageActionButton,
-    #pocket-button-box,
-    .autocomplete-history-dropmarker,
-    #identity-icon-labels
-    {
-        display: none !important;
-    }
+#pageActionButton,
+#pocket-button-box,
+.autocomplete-history-dropmarker,
+#identity-icon-labels {
+    display: none !important;
+}
 
 /* Hide and show close tab button */
 #TabsToolbar .tab-close-button {
@@ -284,9 +282,7 @@ Delete this rule if you want separators between background tabs */
   display: none !important;
 }
 
-
 /* Remove New Tab Flash */
-
 @-moz-document url(chrome://browser/content/browser.xul)
 {
   browser[type="content-primary"], tabbrowser tabpanels, #appcontent > #content
@@ -294,7 +290,6 @@ Delete this rule if you want separators between background tabs */
     background: #323234 !important;
   }
 }
-
 
 /* Change secure connection color */
 #identity-box.verifiedIdentity { 
