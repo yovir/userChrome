@@ -180,7 +180,6 @@ Use with compact density
   -moz-appearance: initial !important;
 }
 
-
 /* Back & Forward buttons */  
 #back-button > .toolbarbutton-icon,
 #forward-button > .toolbarbutton-icon {
@@ -204,16 +203,11 @@ Use with compact density
 #appMenu-popup .panel-arrow {
   margin-right: 248px !important;
 }
-
   
-
-
 /* Tabs */
 .tabbrowser-tab {
   height: 32px !important; 
 }
-
-
 
 /* Remove border between tabs
 Delete this rule if you want separators between background tabs */
@@ -238,7 +232,6 @@ Delete this rule if you want separators between background tabs */
   height: 1 px !important;
   }
 
-
 /*URL Bar*/
     #pageActionButton,
     #pocket-button-box,
@@ -246,19 +239,7 @@ Delete this rule if you want separators between background tabs */
     #identity-icon-labels
     {
         display: none !important;
-    }  
-
-/* Hide favicons, center text 
-#tabbrowser-tabs .tab-icon-image {
-  display: none !important;
-}
-.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
-  display: block !important;
-}
-.tab-label {
-  -moz-box-flex: 1 !important;
-  
-} */
+    }
 
 /* Hide and show close tab button */
 #TabsToolbar .tab-close-button {
@@ -349,7 +330,6 @@ list-style-image: url("file:///C:/Users/Yovi%20Roinaldo/AppData/Roaming/Mozilla/
 }
 
 /* Add dark Windows 10 popupmenu to Firefox */
-
 menupopup {
   -moz-appearance: none !important;
   padding: 8px 2px 8px 2px !important;
@@ -444,7 +424,6 @@ menuitem[checked="true"][type="radio"] > .menu-iconic-left {
 }
 
 /* Compress tabs to show dozens of them. */
-
 .tabbrowser-tab {
   --tab-min-width: 45px;
   -moz-box-flex: 0 !important;
@@ -458,4 +437,9 @@ menuitem[checked="true"][type="radio"] > .menu-iconic-left {
 
 .tabbrowser-tabs > arrowscrollbox {
   height: 45px !important;
+}
+
+/* Invert github favicon color */
+.tab-icon-image[src*="github.com"] {
+  filter: invert(1);
 }
