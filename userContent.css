@@ -70,6 +70,7 @@
   /* inbetween main dark and light color */
   --primary-accent-color: var(--blue-40);
   --primary-accent-color-dark: var(--blue-50);
+  --primary-accent-color-darkest: var(--blue-60);
 }
 @-moz-document url-prefix(about:)  {
   :root {
@@ -103,6 +104,60 @@
     --in-content-table-header-background: var(--dark-accent) !important;
     --in-content-category-background: var(--primary-dark-color) !important;
   }
+
+  /*Dark context menu*/
+
+  menupopup,
+  popup,
+  popup > menu > menupopup,
+  menupopup > menu > menupopup {
+    -moz-appearance: none !important;
+    background: var(--grey-70) !important;
+    border: none !important;
+  }
+
+  /* Remove separator */
+
+  menupopup menuseparator {
+    padding: 0 !important;
+  }
+
+  menupopup menu,
+  menuitem {
+    -moz-appearance: none !important;
+    color: var(--grey-10) !important;
+  }
+
+  menupopup menu:hover,
+  menuitem:hover {
+    color: var(--primary-light-color) !important;
+    background-color: var(--grey-80) !important;
+  }
+
+  /* Menu Separators - removed */
+
+  menupopup menuseparator {
+    padding: 0 !important;
+    border-top: none !important;
+    margin: 2px 6px 2px 6px !important;
+    -moz-appearance: none !important;
+    background: rgba(0, 0, 0, 0) !important;
+    border: 0px !important;
+  }
+
+@media screen and (-moz-windows-theme) {
+    menupopup menu,
+    menuitem {
+      margin: 1px 6px 1px 6px !important;
+    }
+
+    menupopup,
+    popup,
+    popup > menu > menupopup,
+    menupopup > menu > menupopup {
+      border: 1px solid var(--grey-80) !important;
+    }
+}
 }
 
 /* Basic changes fundamental to all pages */
@@ -298,46 +353,6 @@
     border-color: var(--primary-accent-color) !important;
   }
 
-  /*Dark context menu*/
-
-  menupopup,
-  popup,
-  popup > menu > menupopup,
-  menupopup > menu > menupopup {
-    -moz-appearance: none !important;
-    background: var(--grey-70) !important;
-    border: none !important;
-  }
-
-  /* Remove separator */
-
-  menupopup menuseparator {
-    padding: 0 !important;
-  }
-
-  menupopup menu,
-  menuitem {
-    -moz-appearance: none !important;
-    color: var(--grey-10) !important;
-  }
-
-  menupopup menu:hover,
-  menuitem:hover {
-    color: var(--primary-light-color) !important;
-    background-color: var(--grey-80) !important;
-  }
-
-  /* Menu Separators - removed */
-
-  menupopup menuseparator {
-    padding: 0 !important;
-    border-top: none !important;
-    margin: 2px 6px 2px 6px !important;
-    -moz-appearance: none !important;
-    background: rgba(0, 0, 0, 0) !important;
-    border: 0px !important;
-  }
-
   /* about:debugging#addons */
 
   .addon-target-container {
@@ -392,7 +407,7 @@
   /* Selected Color */
 
   #configTreeBody::-moz-tree-row(selected) {
-    background: var(--primary-accent-color) !important;
+    background: var(--blue-60) !important;
   }
 
   /* Hover Color */
@@ -464,6 +479,22 @@
   background-color: var(--grey-80) !important;
 }
 
+#learnMoreContainer #learnMoreLink {
+  color: var(--primary-accent-color) !important;
+}
+
+.toggle-container-with-text input[type="checkbox"] {
+  border: 1px solid var(--grey-50) !important;
+  background-color: var(--grey-60) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.toggle-container-with-text input[type="checkbox"]:checked {
+  background-image: url("chrome://global/skin/in-content/check.svg"), linear-gradient(var(--grey-60), var(--grey-60)) !important;
+  fill: var(--primary-accent-color) !important;
+}
+
 @-moz-document url(about:neterror)  {
   /* about:neterror button */
 
@@ -495,7 +526,51 @@
   .search-wrapper .search-button,
   .icon {
     fill: var(--primary-light-color) !important;
-    opacity: .7 !important;
+  }
+
+  .top-sites-list .top-site-outer .context-menu-button,
+  .card-outer .context-menu-button {
+    background-color: var(--grey-20) !important;
+    background-image: url("chrome://browser/skin/page-action.svg") !important;
+    border: 1px solid var(--grey-20) !important;
+    filter: invert(95%) !important;
+    box-shadow: none !important;
+  }
+
+  .card-outer:-moz-any(:hover, :focus, .active):not(.placeholder) {
+    box-shadow: 0 0 0 5px var(--grey-80) !important;
+  }
+
+  .collapsible-section .section-disclaimer {
+    color: var(--primary-light-color) !important;
+  }
+
+  .collapsible-section .section-disclaimer button:hover:not(.dismiss) {
+    box-shadow: 0 0 0 5px var(--grey-80) !important;
+  }
+
+  .collapsible-section .section-disclaimer button {
+    background: var(--grey-60) !important;
+    border: 1px solid var(--grey-50) !important;
+    color: var(--primary-light-color) !important;
+  }
+
+  .collapsible-section .section-top-bar .info-option-icon {
+    fill: var(--primary-light-color) !important;
+  }
+
+  .collapsible-section .section-top-bar .info-option {
+    border: none !important;
+  }
+
+  .collapsible-section .section-top-bar .info-option-manage button::after {
+    fill: var(--primary-accent-color) !important;
+  }
+
+  .top-sites-list .top-site-outer:hover .tile,
+  .top-sites-list .top-site-outer:focus .tile,
+  .top-sites-list .top-site-outer.active .tile {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 5px var(--grey-80) !important;
   }
 
   .search-wrapper input {
@@ -729,6 +804,10 @@
   }
 }
 @-moz-document url-prefix(about:preferences)  {
+  :root {
+    --primary-accent-color-dark: var(--primary-accent-color);
+  }
+
   ::-moz-selection {
     background: var(--primary-accent-color) !important;
   }
@@ -736,7 +815,7 @@
   .checkbox-check,
   .radio-check {
     box-shadow: none !important;
-    background: var(--grey-50) !important;
+    background: var(--grey-60) !important;
   }
 
   menulist:not([editable="true"]) > *.menulist-dropmarker {
@@ -797,46 +876,6 @@
 
   .navigation {
     background: var(--primary-dark-color) !important;
-  }
-
-  /*Dark context menu*/
-
-  menupopup,
-  popup,
-  popup > menu > menupopup,
-  menupopup > menu > menupopup {
-    -moz-appearance: none !important;
-    background: var(--grey-70) !important;
-    border: none !important;
-  }
-
-  /* Remove separator */
-
-  menupopup menuseparator {
-    padding: 0 !important;
-  }
-
-  menupopup menu,
-  menuitem {
-    -moz-appearance: none !important;
-    color: var(--grey-10) !important;
-  }
-
-  menupopup menu:hover,
-  menuitem:hover {
-    color: var(--primary-light-color) !important;
-    background-color: var(--grey-80) !important;
-  }
-
-  /* Menu Separators - removed */
-
-  menupopup menuseparator {
-    padding: 0 !important;
-    border-top: none !important;
-    margin: 2px 6px 2px 6px !important;
-    -moz-appearance: none !important;
-    background: rgba(0, 0, 0, 0) !important;
-    border: 0px !important;
   }
 }
 @-moz-document url(about:profiles)  {
@@ -949,6 +988,10 @@
   }
 }
 @-moz-document url(about:support)  {
+  :root {
+    --primary-accent-color-dark: var(--primary-accent-color-darkest);
+  }
+
   /* Upper right box */
 
   #action-box {
@@ -958,11 +1001,13 @@
 
   th {
     background-color: var(--primary-accent-color-dark) !important;
+    color: var(--grey-30) !important;
   }
 
   td {
     color: var(--primary-light-color) !important;
     background-color: var(--dark-accent) !important;
+    border: 1px solid var(--grey-60) !important;
   }
 
   button {
@@ -1132,6 +1177,10 @@
   body {
     color: var(--primary-light-color) !important;
     background: var(--grey-60) !important;
+  }
+
+  html {
+    background-color: var(--grey-60) !important;
   }
 
   a {
@@ -2131,7 +2180,9 @@
 
   .Header,
   .Footer-wrapper,
-  .LanguageTools-header-row {
+  .LanguageTools-header-row,
+  .Footer,
+  .amo {
     background: var(--grey-80) !important;
   }
 
@@ -2172,7 +2223,9 @@
   .AddonDescription-more-addons:not(.AddonDescription-more-addons--theme) .Card-contents .AddonsCard-list,
   .AddonDescription-more-addons--theme .Card-contents .AddonsCard-list,
   .Search .SearchResults .SearchResult,
-  .SearchForm-suggestions-item.SearchForm-suggestions-item {
+  .SearchForm-suggestions-item.SearchForm-suggestions-item,
+  .Card-contents li,
+  .Card-footer-text {
     background: var(--grey-60) !important;
   }
 
@@ -2197,7 +2250,7 @@
   .Addon-author,
   .Addon-author a,
   .Addon-author a:link
-	.Button--action,
+  .Button--action,
   .Button--action:link,
   .Button--action.Button--small:link,
   .Button--action,
@@ -2208,13 +2261,19 @@
   .Paginate-page-number,
   .SearchSuggestion-name,
   .ExpandableCard-ToggleLink:link,
-  .Paginate .Paginate-item {
+  .Paginate .Paginate-item,
+  .Card-footer-text {
     color: var(--primary-light-color) !important;
   }
 
   .Paginate-previous::before,
-  .Paginate-next::after {
+  .Paginate-next::after,
+  .Card-contents li .Rating-star-group {
     filter: invert(70%) !important;
+  }
+
+  .ShowMoreCard-contents::after {
+    background: linear-gradient(rgba(255, 255, 255, 0), var(--grey-60)) !important;
   }
 
   .Home-SubjectShelf-link:active,
@@ -2365,19 +2424,18 @@
 
   .highlight .error,
   .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
-	                              .pi, .entity, .attribute-name, .attribute-value) {
+                                .pi, .entity, .attribute-name, .attribute-value) {
     color: #de7474 !important;
   }
 }
 
 /* Remove New Tab Flash */
-
-        @-moz-document url(about:blank),
-                       url(about:newtab)
-        {
-          #newtab-window,
-          html
-          {
-            background: #323234;
-          }
-        }
+@-moz-document url(about:blank),
+               url(about:newtab)
+{
+  #newtab-window,
+  html
+  {
+    background: #323234;
+  }
+}

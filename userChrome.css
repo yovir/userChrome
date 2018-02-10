@@ -439,7 +439,11 @@ menuitem[checked="true"][type="radio"] > .menu-iconic-left {
   height: 45px !important;
 }
 
-/* Invert github favicon color */
+/* Invert dark favicon color */
 .tab-icon-image[src*="github.com"] {
+  filter: invert(1);
+}
+
+.tab-icon-image[src*="scdn.co"] { /* Spotify */
   filter: invert(1);
 }
