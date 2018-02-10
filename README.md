@@ -23,7 +23,7 @@ My personal configuration for Firefox, taken from reddit and shadowfox.
 
 ## Screenshot
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.PNG)
 
 
 
