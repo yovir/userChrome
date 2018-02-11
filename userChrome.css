@@ -442,3 +442,7 @@ menuitem[checked="true"][type="radio"] > .menu-iconic-left {
 .tab-icon-image[src*="scdn.co"] { /* Spotify */
   filter: invert(1);
 }
+
+.tab-icon-image[src*="genius.com"] {
+  filter: invert(1);
+}
