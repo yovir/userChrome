@@ -318,7 +318,7 @@ Delete this rule if you want separators between background tabs */
 }
 
 #PanelUI-menu-button {
-list-style-image: url("file:///C:/Users/Yovi%20Roinaldo/AppData/Roaming/Mozilla/Firefox/Profiles/xbh4gvct.default-1510849070419/chrome/firefox.png") !important;
+list-style-image: url("firefoxprofilepath/chrome/firefox.png") !important;
 }
 
 #pageAction-urlbar-_e1ed7a80-7c11-4f7e-968b-79b551a0067f_{
