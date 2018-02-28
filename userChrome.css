@@ -229,6 +229,7 @@ Delete this rule if you want separators between background tabs */
 .tab-line {
   background-color: #0a84ff !important;
   height: 1 px !important;
+  display: none !important;
 }
 
 /*URL Bar*/
